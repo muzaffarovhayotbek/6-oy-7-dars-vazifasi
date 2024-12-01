@@ -1,39 +1,54 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { backend } from './axios';
-import Card from './components/Card';
+import './App.css';
 
 function App() {
-  const [latest, setLatest] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [rate, setRate] = useState(null);
+  const [field, setField] = useState('');
+  const [result, setResult] = useState(0);
+  const API_KEY = '67bebe0e23-e827c01d45-snt7l2';
 
   useEffect(() => {
-    setLoading(true);
     backend
-      .get('latest')
+      .get(`fetch-one?from=USD&to=UZS&api_key=${API_KEY}`)
       .then((response) => {
-        if (response.status == 200) {
-          setLatest(response.data);
+        if (response.status === 200) {
+          setRate(response.data.result.UZS);
+          console.log(14, response.data.result.UZS);
         }
       })
       .catch((error) => {
         console.log(error);
-      })
-      .finally(function () {
-        setLoading(false);
       });
   }, []);
 
-  return (
-    <div>
-      <div>
-        {!loading &&
-          latest.length > 0 &&
-          latest.map(function (latest, index) {
-            return <Card key={index} latest={latest} />;
-          })}
+  function handleConvert(event) {
+    event.preventDefault();
 
-        {loading && <p>loading...</p>}
-      </div>
+    if (!field || isNaN(field)) {
+      alert('Iltimos, raqam kiriting!');
+      return;
+    }
+
+    setResult((field * rate).toFixed(2));
+  }
+
+  return (
+    <div className="app">
+      <form className="form-container">
+        <h2 className="form-title">Valyuta Konverteri</h2>
+        <input
+          className="input-field"
+          placeholder="Raqam kiriting"
+          value={field}
+          onChange={(e) => setField(e.target.value)}
+          type="number"
+        />
+        <button className="convert-button" onClick={handleConvert}>
+          Convert
+        </button>
+        <h1 className="result-text">Natija: {result}</h1>
+      </form>
     </div>
   );
 }
