@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   background: radial-gradient(circle, #4facfe 30%, #00f2fe 100%);
   font-family: 'Arial', sans-serif;
@@ -16,6 +16,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-title {
@@ -32,7 +33,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .input-field:focus {
@@ -50,12 +51,13 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .convert-button:hover {
   background-color: #00c6ff;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.5);
 }
 
 .result-text {
@@ -63,4 +65,48 @@
   font-size: 20px;
   color: #333;
   font-weight: bold;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  background-color: #f3f4f6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #60a5fa;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00c6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 198, 255, 0.5);
 }
