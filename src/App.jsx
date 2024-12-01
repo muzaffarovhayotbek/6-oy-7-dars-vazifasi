@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { backend } from './axios';
-import './App.css'; // CSS faylni ulaymiz
+import './App.css';
 
 function App() {
   const [rate, setRate] = useState(null);
