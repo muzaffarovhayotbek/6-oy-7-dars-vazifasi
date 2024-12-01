@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { backend } from './axios';
-import './App.css';
+import './App.css'; // CSS faylni ulaymiz
 
 function App() {
   const [rate, setRate] = useState(null);
@@ -47,7 +47,7 @@ function App() {
         <button className="convert-button" onClick={handleConvert}>
           Convert
         </button>
-        <h1 className="result-text">Natija: {result}</h1>
+        <h1 className="result-text">Natija: {result} UZS</h1>
       </form>
     </div>
   );
